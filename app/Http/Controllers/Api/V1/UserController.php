@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Http\Requests\UserRequest;
+use App\Http\Requests\User\Store;
+use App\Http\Requests\User\Update;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -37,10 +38,10 @@ class UserController extends Controller
      *
      * Store a newly created resource in storage.
      *
-     * @param UserRequest $request
+     * @param Store $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function store(UserRequest $request)
+    public function store(Store $request)
     {
         $user = $this->user;
 
@@ -75,11 +76,11 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param UserRequest $request
+     * @param Update $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UserRequest $request, $id)
+    public function update(Update $request, $id)
     {
         $user = $this->user::find($id);
 
